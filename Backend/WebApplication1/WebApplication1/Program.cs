@@ -1,0 +1,13 @@
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+
+
+
+var app = builder.Build();
+//app.MapGet("/", () => "Hello World!");
+//app.MapGet("/about", () => "About Page");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseStaticFiles();
+app.Run();
